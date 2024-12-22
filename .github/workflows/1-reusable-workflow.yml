@@ -1,0 +1,26 @@
+name: Reusable Workflow
+
+on: 
+  workflow_call:
+    inputs:
+      target-direcctory:
+        type: string
+        required: true
+    outputs:
+      build-status:
+        description: The status of the build process
+        value: ${{ jobs.deploy.outputs.build-status }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs: 
+      build-status: ${{ steps.build.output.build-status }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Build repo
+        id: build
+        run: |
+          echo "Building using directory - ${{ inputs.target-directory }}"
+          echo "Build status = success" >> "$GITHUB_OUTPUT"
