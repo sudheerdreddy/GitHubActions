@@ -3,7 +3,7 @@ name: Reusable Workflow
 on: 
   workflow_call:
     inputs:
-      target-direcctory:
+      target-directory:
         type: string
         required: true
     outputs:
