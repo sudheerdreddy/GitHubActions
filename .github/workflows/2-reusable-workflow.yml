@@ -13,4 +13,4 @@ jobs:
     needs: deploy
     steps:
       - name: Print outputs
-        run: echo "Build status: ${{ needs.deploy.outputs.build-status }} "
+        run: echo "Build status is ${{ needs.deploy.outputs.build-status }} "
