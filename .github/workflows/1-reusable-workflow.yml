@@ -15,7 +15,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     outputs: 
-      build-status: ${{ steps.build.output.build-status }}
+      build-status: ${{ steps.build.outputs.build-status }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
